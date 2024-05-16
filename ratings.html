@@ -1,0 +1,25 @@
+<!-- rate_application.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Application</title>
+</head>
+<body>
+    <h1>Rate Application</h1>
+    <form id="rateForm">
+        <label for="functionality">Functionality:</label>
+        <input type="number" id="functionality" name="functionality" min="0" max="10" step="0.1" required><br>
+
+        <label for="performance">Performance:</label>
+        <input type="number" id="performance" name="performance" min="0" max="10" step="0.1" required><br>
+
+        <!-- Add more input fields for other criteria as needed -->
+
+        <button type="submit">Rate Application</button>
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Information</title>
+    <!-- Use Bootstrap 5 resources -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include FontAwesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    /* Define the gradient background for the jumbotron */
+    .jumbotron {
+        background: #E100FF; /* Fallback color for older browsers */
+        background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+        background: linear-gradient(to right, #E100FF, #7F00FF);
+        padding: 50px;
+        text-align: left;
+        color: #fff; /* Text color on the jumbotron */
+    }
+
+    /* Style the heading and paragraph within the jumbotron */
+    .jumbotron h1 {
+        font-size: 46px;
+        margin-bottom: 20px;
+    }
+
+    .jumbotron p {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Style the button within the jumbotron */
+    .jumbotron .btn {
+        padding: 15px 30px;
+        font-size: 30px;
+        background: #fff; /* Button background color */
+        color: #7F00FF; /* Button text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+        background: #7F00FF; /* Hover background color */
+        color: #fff; /* Hover text color */
+    }
+
+    /* Reset some default styles */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the navbar */
+    nav {
+        background-color: #fff;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Style the navbar list items */
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the navbar list items */
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    /* Style the navbar links */
+    nav ul li a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Style the Font Awesome icons */
+    nav ul li i {
+        margin-right: 5px;
+    }
+
+    /* Style the logo in the navbar */
+    .navbar-logo {
+        margin-right: auto; /* Push the logo to the left */
+        padding: 0 20px; /* Add some spacing */
+    }
+
+</style>
+<body>
+
+<nav class="navbar">
+    <!-- Logo on the left -->
+    <div class="navbar-logo">
+        <img src="static/tag.png" alt="Logo" style="width: 110px; height: 90px;">
+    </div>
+    <!-- List items on the right -->
+    <ul class="nav-list">
+        <li><a href="/home2"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/search"><i class="fas fa-search"></i>Search Customer</a></li>
+        <li><a href="/fetch-customer"><i class="fas fa-users"></i>All Customers</a></li>
+        <li><a href="/fetch-all-information"><i class="fas fa-list"></i>All Information</a></li>
+        <form class="d-flex" action="/search-services-by-single-date" method="POST">
+            <input class="form-control me-2" type="date" placeholder="Select Date (YYYY-MM-DD)" aria-label="Search"
+                    name="next-service">
+            <button class="btn btn-outline-success" style="color: #000; border: 2px #000 solid;" type="submit">Search</button>
+        </form>
+        <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+</nav>
+
+<div class="jumbotron">
+    <p>Welcome to AC GURU PRO <br> Dear, {{name}}</p>
+</div>
+
+<div class="container mt-3">
+    <h2>All Services Records</h2>
+    <p>Fetched For The Mechanic {{name}}</p>
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <!-- Customer Information -->
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <!-- AC Information -->
+            <th>AC Category</th>
+            <th>AC Brand</th>
+            <!-- Service Information -->
+            <th>Service Type</th>
+            <th>Repair Required</th>
+            <th>Repair Note</th>
+            <th>Repair Expense</th>
+            <th>Gas Filling Required</th>
+            <th>Gas Filling Expense</th>
+            <th>Service Expense</th>
+            <th>Payment From Customer</th>
+            <th>Service Done On</th>
+            <th>Next Service</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Your HTML code remains unchanged up to the table header -->
+
+<tbody>
+  {% for customer_id, customer_data in customer_info.items() %}
+    {% for ac_info in customer_data.acs_info %}
+      <tr>
+        <td>{{ customer_data.customer_details.name }}</td>
+        <td>{{ customer_data.customer_details.phone }}</td>
+        <td>{{ customer_data.customer_details.email }}</td>
+        <td>{{ customer_data.customer_details.address }}</td>
+
+
+        <td>{{ ac_info.ac_details['ac category'] }}</td>
+        <td>{{ ac_info.ac_details['ac brand'] }}</td>
+
+
+        {% for service in ac_info.services %}
+          <td>{{ service['service-type'] }}</td>
+          <td>{{ service['repair-required'] }}</td>
+          <td>{{ service['repairing-note'] }}</td>
+          <td>{{ service['repairing-cost'] }}</td>
+          <td>{{ service['gas-filling'] }}</td>
+          <td>{{ service['gas-filling-cost'] }}</td>
+          <td>{{ service['service-cost'] }}</td>
+          <td>{{ service['total-cost'] }}</td>
+          <td>{{ service['createdon'] }}</td>
+          <td>{{ service['next-service'] }}</td>
+        {% endfor %}
+
+      </tr>
+    {% endfor %}
+  {% endfor %}
+</tbody>
+    </table>
+</div>
+
+</body>
+</html>

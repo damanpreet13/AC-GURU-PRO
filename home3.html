@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <!-- Use Bootstrap 5 resources -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Include FontAwesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+
+    /* Define the gradient background for the jumbotron */
+    .jumbotron {
+        background: #E100FF;
+        /* Fallback color for older browsers */
+        background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+        background: linear-gradient(to right, #E100FF, #7F00FF);
+        padding: 50px;
+        text-align: left;
+        color: #fff;
+        /* Text color on the jumbotron */
+    }
+
+    /* Style the heading and paragraph within the jumbotron */
+    .jumbotron h1 {
+        font-size: 46px;
+        margin-bottom: 20px;
+    }
+
+    .jumbotron p {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Style the button within the jumbotron */
+    .jumbotron .btn {
+        padding: 15px 30px;
+        font-size: 30px;
+        background: #fff;
+        /* Button background color */
+        color: #7F00FF;
+        /* Button text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+        background: #7F00FF;
+        /* Hover background color */
+        color: #fff;
+        /* Hover text color */
+    }
+
+    /* Reset some default styles */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the navbar */
+    nav {
+        background: #fff;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Style the navbar list items */
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the navbar list items */
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    /* Style the navbar links */
+    nav ul li a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Style the Font Awesome icons */
+    nav ul li i {
+        margin-right: 5px;
+    }
+
+    /* Style the logo in the navbar */
+    .navbar-logo {
+        margin-right: auto;
+        /* Push the logo to the left */
+        padding: 0 20px;
+        /* Add some spacing */
+    }
+
+    /* Add a new CSS rule for the submit button color */
+    .btn.btn-primary {
+        padding: 5px 10px;
+        font-size: 15px;
+        background: #E100FF;
+        /* Fallback color for older browsers */
+        background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+        background: linear-gradient(to right, #E100FF, #7F00FF);
+        padding: 20px;
+        color: #fff;
+        /* Button text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+}
+
+.about-section h1 {
+    font-size: 2.8rem;
+}
+
+.technician i {
+    font-size: 2rem;
+    color: orangered;
+}
+
+.about-technician {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.technician {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.img-grid {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 45%;
+}
+
+.img-grid img {
+    border-radius: 10px;
+}
+
+.img-grid img:nth-child(3) {
+    display: flex;
+    align-items: flex-start;
+}
+
+.inner-data-section {
+    background-color: black;
+    width: 100%;
+    height: 415px;
+    position: relative;
+}
+
+.inner-data-section img {
+    opacity: 0.2;
+
+}
+
+.data-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 99;
+    color: white;
+    font-size: 2rem;
+}
+
+.data-section p {
+    color: orangered;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3f2fd;
+}
+.footer {
+    width: 100%;
+    background: #10182F;
+}
+
+.footer .footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3.5rem;
+    padding: 60px;
+}
+
+.footer-row .footer-col h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.footer-col .links {
+    margin-top: 20px;
+}
+
+.footer-col .links li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.footer-col .links li a {
+    text-decoration: none;
+    color: #bfbfbf;
+}
+
+.footer-col .links li a:hover {
+    color: #fff;
+}
+
+.footer-col p {
+    margin: 20px 0;
+    color: #bfbfbf;
+    max-width: 300px;
+}
+
+.footer-col form {
+    display: flex;
+    gap: 5px;
+}
+
+.footer-col input {
+    height: 40px;
+    border-radius: 6px;
+    background: none;
+    width: 100%;
+    outline: none;
+    border: 1px solid #7489C6;
+    caret-color: #fff;
+    color: #fff;
+    padding-left: 10px;
+}
+
+.footer-col input::placeholder {
+    color: #ccc;
+}
+
+.footer-col form button {
+    background: #fff;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.footer-col form button:hover {
+    background: #cecccc;
+}
+
+.footer-col .icons {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.footer-col .icons i {
+    color: #afb6c7;
+}
+
+.footer-col .icons i:hover {
+    color: #fff;
+}
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container-fluid {
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Testimonial section */
+        .testimonial {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial .testimonial-content {
+            padding: 40px 20px;
+        }
+
+        .testimonial img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .testimonial h4 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+
+/* Container for the features section */
+.container-xxl {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Title style */
+.display-6 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333; /* Adjust as needed */
+}
+
+/* Text style */
+.mb-5 {
+    margin-bottom: 3rem;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #555; /* Adjust as needed */
+}
+
+/* Feature items container */
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+/* Feature item */
+.mb-0 {
+    margin-bottom: 0;
+}
+
+/* Feature icon container */
+.btn-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+}
+
+/* Feature icon image */
+.img-fluid {
+    max-width: 70%;
+    height: auto;
+}
+
+/* Feature description */
+.ms-4 {
+    margin-left: 1rem; /* Adjust as needed */
+}
+
+/* Feature title */
+.mb-3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333; /* Adjust as needed */
+}
+
+/* Feature text */
+span {
+    font-size: 1rem;
+    color: #555; /* Adjust as needed */
+}
+
+/* Image container */
+.position-relative {
+    position: relative;
+}
+
+/* Image style */
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+/* Rounded corners for image */
+.rounded {
+    border-radius: 0.25rem;
+}
+
+/* Overflow behavior for image container */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+</style>
+
+<body>
+    <nav class="navbar">
+        <!-- Logo on the left -->
+        <div class="navbar-logo">
+            <img src="static/tag.png" alt="Logo" style="width: 110px; height: 90px;">
+        </div>
+
+        <!-- List items on the right -->
+        <ul class="nav-list">
+            <!-- <li><a href="/home2"><i class="fas fa-home"></i> Home</a></li>-->
+            <li><a href="/view-ac-and-services/{{ session['customer_id'] }}"><i class="fas fa-list"></i>View Services</a></li>
+            <!-- Inside the <nav> element -->
+            <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="jumbotron">
+        <p>  Welcome to AC GURU PRO </p>
+    </div>
+  <br>
+
+    <div class="about-section" style="margin-top: 50px;">
+        <section>
+            <h1>Welcome To Best Cooling & <br> Heating Service Center</h1>
+            <br>
+            <div class="about-technician">
+                <div class="technician">
+                    <!-- <i class="ri-shield-user-line"></i> -->
+                    <img src="static/icon-06-primary.png" alt="">
+                    <h3>Expert Technician</h3>
+                </div>
+                <div class="technician">
+                    <!-- <i class="ri-shield-user-line"></i> -->
+                    <img src="static/icon-02-primary.png" alt="" style="margin-left: 20px;">
+                    <h3>Best Quality Services</h3>
+                </div>
+            </div>
+            <br>
+            <p>"Efficiency is doing things right; effectiveness is doing the right things."<br>
+                                                                           - Peter Drucker</p>
+            <br>
+            <hr>
+            <br>
+            <div class="about-technician">
+                <div class="technician">
+                    <i class="ri-phone-fill"></i>
+                     <!--<img src="img/logo.jpg" alt=""> -->
+                    <h3>+012 345 6789</h3>
+                </div>
+                <div class="technician">
+                    <i class="ri-mail-line"></i>
+                    <!-- <img src="img/logo.jpg" alt=""> -->
+                    <h3>info@example.com</h3>
+                </div>
+            </div>
+        </section>
+        <section class="img-grid">
+            <img src="static/service-3.jpg" alt="" width="30%">
+            <img src="static/about-4.jpg" alt="" width="60%">
+            <img src="static/about-1.jpg" alt="" width="20%">
+            <img src="static/service-2.jpg" alt="" width="35%">
+        </section>
+    </div>
+    <br>
+    <br>
+
+    <div class="container-fluid">
+        <section class="testimonial active">
+            <div class="testimonial-content">
+                <img src="static/img2.jpg" alt="Client 1">
+                <h4>John Doe</h4>
+                <p>"The AC Record Service Management System has greatly simplified our workflow. It's intuitive,
+                    efficient, and has all the features we need to manage our AC maintenance records seamlessly."</p>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="testimonial-content">
+                <img src="static/img3.jpg" alt="Client 2">
+                <h4>Jane Smith</h4>
+                <p>"I'm impressed with the level of customization this system offers. We've tailored it to fit our
+                    specific needs, and it's made a significant difference in how we manage our AC service
+                    appointments."</p>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="testimonial-content">
+                <img src="static/img5.jpg" alt="Client 3">
+                <h4>Kiara Johnson</h4>
+                <p>"The responsiveness of the support team behind this system is outstanding. Anytime we've had an
+                    issue or a question, they've been quick to respond and provide helpful solutions. Highly
+                    recommended!"</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const testimonials = document.querySelectorAll('.testimonial');
+        let index = 0;
+
+        function showTestimonial() {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonials[index].classList.add('active');
+            index = (index + 1) % testimonials.length;
+        }
+
+        setInterval(showTestimonial, 5000); // Change testimonial every 5 seconds
+    </script>
+
+    <div class="inner-data-section">
+        <img src="static/banner3.jpg" alt="" width="100%">
+        <section class="data-section">
+            <section style="text-align: center;">
+                <h1>1234</h1>
+                <p>Happy Clients</p>
+            </section>
+            <section style="text-align: center;">
+                <h1>1234</h1>
+                <p>Projects Succeed</p>
+            </section>
+            <section style="text-align: center;">
+                <h1>1234</h1>
+                <p>Awards Achieved</p>
+            </section>
+            <section style="text-align: center;">
+                <h1>1234</h1>
+                <p>Team Members</p>
+            </section>
+        </section>
+        <br><br>
+        <!-- Features Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="display-6 mb-5">Few Reasons Why People Choosing Us!</h1>
+                    <p class="mb-5">Our system is backed by years of expertise in the HVAC industry, earning the trust of customers who value reliability and professionalism.</p>
+                    <div class="d-flex mb-5">
+                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle" style="width: 90px; height: 90px;">
+                            <img class="img-fluid" src="static/icon-09-primary.png" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="mb-3">Trusted Service Center</h5>
+                            <span>Your trusted service center for reliable solutions and peace of mind.</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-5">
+                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle" style="width: 90px; height: 90px;">
+                            <img class="img-fluid" src="static/icon-09-primary.png" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="mb-3">Reasonable Price</h5>
+                            <span>Quality service at a fair price, because your satisfaction shouldn't break the bank</span>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-0">
+                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle" style="width: 90px; height: 90px;">
+                            <img class="img-fluid" src="static/icon-09-primary.png" alt="">
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="mb-3">24/7 Supports</h5>
+                            <span>Count on us round the clock for unwavering support, whenever you need it</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="position-relative rounded overflow-hidden h-100" style="min-height: 400px;">
+                        <img class="position-absolute w-100 h-100" src="static/feature.jpg" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features End -->
+
+    <!--footer-->
+    <section class="footer">
+        <div class="footer-row">
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="links">
+                    <li><a href="/About-Us">About Us</a></li>
+                    <li><a href="/Contact-Us">Contact</a></li>
+                    <li><a href="/Terms">Terms & Conditions </a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <ul class="links">
+                    <li><a href="#">123 Street, New York, USA</a></li>
+                    <li><a href="#">+012 345 67890</a></li>
+                    <li><a href="#">info@example.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul class="links">
+                    <li><a href="#">AC Installation</a></li>
+                    <li><a href="#">AC Repairs</a></li>
+                    <li><a href="#">Cooling Services</a></li>
+                    <li><a href="#">Annual Inspections</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>
+                    Subscribe to our newsletter for a weekly dose
+                    of news, updates, helpful tips, and
+                    exclusive offers.
+                </p>
+                <form action="#">
+                    <input type="text" placeholder="Your email" required>
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+                <div class="icons">
+                   <a href="#"><i class="fab fa-facebook-f"></i></a>
+                   <a href="#"><i class="fab fa-twitter"></i></a>
+                   <a href="#"><i class="fab fa-linkedin"></i></a>
+                   <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service</title>
+    <!-- Use Bootstrap 5 resources -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Include FontAwesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+    /* Define the gradient background for the jumbotron */
+    .jumbotron {
+        background: #E100FF; /* Fallback color for older browsers */
+        background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+        background: linear-gradient(to right, #E100FF, #7F00FF);
+        padding: 50px;
+        text-align: left;
+        color: #fff; /* Text color on the jumbotron */
+    }
+
+    /* Style the heading and paragraph within the jumbotron */
+    .jumbotron h1 {
+        font-size: 46px;
+        margin-bottom: 20px;
+    }
+
+    .jumbotron p {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Style the button within the jumbotron */
+    .jumbotron .btn {
+        padding: 15px 30px;
+        font-size: 30px;
+        background: #fff; /* Button background color */
+        color: #7F00FF; /* Button text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .jumbotron .btn:hover {
+        background: #7F00FF; /* Hover background color */
+        color: #fff; /* Hover text color */
+    }
+
+    /* Reset some default styles */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Style the navbar */
+    nav {
+        background-color: #fff;
+        color: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    /* Style the navbar list items */
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    /* Style the navbar list items */
+    nav ul li {
+        margin: 0 20px;
+    }
+
+    /* Style the navbar links */
+    nav ul li a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Style the Font Awesome icons */
+    nav ul li i {
+        margin-right: 5px;
+    }
+
+    /* Style the logo in the navbar */
+    .navbar-logo {
+        margin-right: auto; /* Push the logo to the left */
+        padding: 0 20px; /* Add some spacing */
+    }
+    /* Add a new CSS rule for the submit button color */
+    .btn.btn-primary {
+        padding: 5px 10px;
+        font-size: 15px;
+        background: #E100FF; /* Fallback color for older browsers */
+        background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
+        background: linear-gradient(to right, #E100FF, #7F00FF);
+        padding: 20px;
+        color: #fff; /* Button text color */
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+     /* Service Section Styles */
+        .service-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .service-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            max-height: 200px;
+        }
+
+</style>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="static/tag.png" alt="Logo" style="width: 110px; height: 90px;">
+        </div>
+        <!-- List items on the right -->
+        <ul class="nav-list">
+            <li><a href="/home2"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/search"><i class="fas fa-search"></i>Search Customer</a></li>
+            <li><a href="/fetch-customer"><i class="fas fa-users"></i>All Customers</a></li>
+            <li><a href="/fetch-all-information"><i class="fas fa-list"></i>All Information</a></li>
+            <form class="d-flex" action="/search-services-by-single-date" method="POST">
+                <input class="form-control me-2" type="date" placeholder="Select Date (YYYY-MM-DD)" aria-label="Search"
+                    name="next-service">
+                <button class="btn btn-outline-success" style="color: #000; border: 2px #000 solid;" type="submit">Search</button>
+            </form>
+            <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+
+    </nav>
+    <div class="jumbotron">
+        <p>  Welcome to AC GURU PRO <br> Dear, {{name}}</p>
+    </div>
+    <br>
+    <!-- Service Section -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Service Item 1 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-4.jpg" alt="AC Installation">
+                    <h3>AC Installation</h3>
+                </div>
+            </div>
+            <!-- Service Item 2 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-4.jpg" alt="Cooling Services">
+                    <h3>Cooling Services</h3>
+                </div>
+            </div>
+            <!-- Service Item 3 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-4.jpg" alt="Heating Services">
+                    <h3>Heating Services</h3>
+                </div>
+            </div>
+            <!-- Service Item 4 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-4.jpg" alt="Maintenance & Repair">
+                    <h3>Maintenance & Repair</h3>
+                </div>
+            </div>
+            <!-- Service Item 5 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-3.jpg" alt="">
+                    <h3>Indoor Air Quality</h3>
+                </div>
+            </div>
+            <!-- Service Item 6 -->
+            <div class="col">
+                <div class="service-item">
+                    <img src="static/about-4.jpg" alt="Annual Inspections">
+                    <h3>Annual Inspections</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+<h2>Add Service for {{ac['ac brand']}}</h2>
+  <p>AC Category: {{ac['ac category']}}</p>
+   <form action="/save-service" method="post">
+     <div class="mb-3">
+      <label>Service-Type :</label>
+      <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio" name="service-type" value="Dry Cleanup" checked>Dry Cleanup
+       <label class="form-check-label" for="radio"></label>
+      </div>
+     <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio1" name="service-type" value="Wet Cleanup">Wet cleanup
+       <label class="form-check-label" for="radio1"></label>
+     </div>
+     </div> <!-- Close the div here -->
+     <div class="mb-3">
+      <label>Repair Required :</label>
+      <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio2" name="repair-required" value="Yes" checked>YES
+       <label class="form-check-label" for="radio2"></label>
+     </div>
+     <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio3" name="repair-required" value="NO">NO
+       <label class="form-check-label" for="radio3"></label>
+     </div>
+     </div> <!-- Close the div here -->
+
+    <div class="mb-3 mt-3">
+      <label for="repairing-note">Repair-Note :</label>
+      <input type="text" class="form-control" id="repairing-note" placeholder="Add Repairing Note Here" name="repairing-note">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="repairing-cost">Repair Expense:</label>
+      <input type="number" class="form-control" id="repairing-cost" placeholder="Enter Repairing Expense" name="repairing-cost">
+    </div>
+
+    <div class="mb-3">
+      <label>Gas Filling Required :</label>
+      <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio4" name="gas-filling" value="Yes" checked>YES
+       <label class="form-check-label" for="radio4"></label>
+      </div>
+     <div class="form-check">
+       <input type="radio" class="form-check-input" id="radio5" name="gas-filling" value="NO">NO
+       <label class="form-check-label" for="radio5"></label>
+     </div>
+
+     <div class="mb-3 mt-3">
+      <label for="gas-filling-cost">Gas Filling Expense:</label>
+      <input type="number" class="form-control" id="gas-filling-cost" placeholder="Enter Gas Installation  Expense" name="gas-filling-cost">
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="service-cost">Service Expense:</label>
+      <input type="number" class="form-control" id="service-cost" placeholder="Enter Service  Expense" name="service-cost">
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="total-cost">payment From Customer:</label>
+      <input type="number" class="form-control" id="total-cost" placeholder="Enter payment From Customer " name="total-cost">
+    </div>
+
+    <div class="mb-3">
+      <label for="next-service">Next Service :</label>
+      <input type="date" class="form-control" id="next-service" placeholder="Enter Next Service " name="next-service">
+    </div>
+
+    <!--  Hidden Form Fields-->
+    <input type="hidden" name="customer_id" value="{{customer['_id']}}">
+    <input type="hidden" name="ac_id" value="{{ac['_id']}}">
+    <input type="hidden" name="ac category" value="{{ac['ac category']}}">
+    <input type="hidden" name="ac brand" value="{{ac['ac brand']}}">
+    <input type="hidden" name="ac_id" value="{{ac['_id']}}">
+    <input type="hidden" name="customer_name" value="{{customer['name']}}">
+    <input type="hidden" name="customer_email" value="{{customer['email']}}">
+
+    <button type="submit" class="btn btn-primary">Add Service</button>
+
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
